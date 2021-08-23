@@ -5,19 +5,19 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ignore-path .gitignore",
-    "lint:fix": "eslint . --ignore-path .gitignore",
+    "lint:fix": "eslint . --ignore-path .gitignore --fix",
     "start": "node ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhycorp/whatsapp-bot.git"
+    "url": "git+https://github.com/rzlamrr/dvstBot.git"
   },
   "author": "Zhycorp",
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/zhycorp/whatsapp-bot/issues"
+    "url": "https://github.com/rzlamrr/dvstBot/issues"
   },
-  "homepage": "https://github.com/zhycorp/whatsapp-bot#readme",
+  "homepage": "https://github.com/rzlamrr/dvstBot#readme",
   "eslintConfig": {
     "extends": "@zhycorp/eslint-config/node"
   },
