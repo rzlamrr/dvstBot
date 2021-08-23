@@ -42,10 +42,7 @@ function start(bot) {
                 args = message.body.slice(prefix.length).trim().split(/ +/g);
                 command = args.shift().toLowerCase();
                 sender = message.sender.pushname;
-            } else {
-                return;
-            }
-            if (message.caption.startsWith(prefix)) {
+            } else if (message.caption.startsWith(prefix)) {
                 args = message.caption.slice(prefix.length).trim().split(/ +/g);
                 command = args.shift().toLowerCase();
                 sender = message.sender.pushname;
