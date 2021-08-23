@@ -21,7 +21,7 @@ whatsapp.create({
     logConsole: false,
     popup: true,
     qrTimeout: 0,
-    sessionId: "ZHYCORP",
+    sessionId: "dvstBot",
     useChrome: true
 }).then(bot => start(bot));
 
