@@ -8,14 +8,16 @@ exports.run = async (bot, message) => {
         const media = await decryptMedia(message, uaOverride);
         await bot.sendImageAsSticker(message.from, `data:image/jpeg;base64,${media.toString("base64")}`, {
             author: message.sender.pushname,
-            pack: "dvstBot"
+            pack: "dvstBot",
+            keepScale: true
         });
         return console.log(`[DEBUG] Sticker was generated in ${Date.now() - now}ms`);
     } else if (message.quotedMsgObj && message.quotedMsgObj.type === "image") {
         const media = await decryptMedia(message.quotedMsgObj, uaOverride);
         await bot.sendImageAsSticker(message.from, `data:image/jpeg;base64,${media.toString("base64")}`, {
             author: message.sender.pushname,
-            pack: "dvstBot"
+            pack: "dvstBot",
+            keepScale: true
         });
         return console.log(`[DEBUG] Sticker was generated in ${Date.now() - now}ms`);
     } else if ((message.isMedia || message.isGif) || (message.mimetype === "video/mp4" || message.mimetype === "image/gif") || message.type === "video") {
@@ -24,7 +26,8 @@ exports.run = async (bot, message) => {
         try {
             await bot.sendMp4AsSticker(message.from, mediaData, {}, {
                 author: message.sender.pushname,
-                pack: "dvstBot"
+                pack: "dvstBot",
+                keepScale: true
             });
         } catch (error) {
             return bot.reply(message.from, "Error", message.id);
