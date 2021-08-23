@@ -17,24 +17,32 @@
 | Command handler | This bot uses a command handler which means every command has its own file; Easier to debug |
 | | Another new thing soon |
 
-## Usage
-1. Open your terminal
-2. Clone this repo
+## Installation
+1. Clone this repo
 ```sh
 git clone https://github.com/rzlamrr/dvstBot
 cd dvstBot
 ```
-3. Open up the `config.json` file, and fill the required variables
-4. Install all the required dependencies
+2. Open up the `config.json` file, and fill the required variables
+3. Install all the required dependencies
 ```sh
 npm i
 ```
-5. Start up the bot!
+4. Start up the bot!
 ```sh
 npm start
 ```
 5. It will gives you a QR code which you can scan using your WhatsApp Web account
 6. Your bot is online and ready to use. Test it by `.ping`
+
+### Troubleshooting
+Make sure all the necessary dependencies are installed: [troubleshooting.md](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md)
+
+If you get stuck on linux(debian based): 
+```bash
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
 
 ## Contributing
 Fixing bug, adding new features, and more? Feel free to make a Pull requests.
