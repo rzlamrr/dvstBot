@@ -3,19 +3,22 @@
 > I am not responsible if you get banned because of using this bot!
 
 ## Available Commands
-| Command | Description | Screenshot |
-|------|-------------| --------------|
-| Ping | PING PONG | ![Ping](https://raw.githubusercontent.com/rzlamrr/dvstBot/main/assets/images/ping.png) |
-| Sticker | Stickerify a picture | ![Sticker](https://raw.githubusercontent.com/rzlamrr/dvstBot/main/assets/images/sticker.png) |
-| Help | Show the bot's commands list | ![Help](https://raw.githubusercontent.com/rzlamrr/dvstBot/main/assets/images/help.png) |
-| Math | Calculate something | ![Math](https://raw.githubusercontent.com/rzlamrr/dvstBot/main/assets/images/math.png) |
-| Another new thing soon | | |
+| Command | Description |
+|------|-------------|
+| all | Tag all members |
+| bc | Broadcast to all chats |
+| help | Show the bot's commands list |
+| math | Calculate something |
+| ping | PING PONG |
+| sticker | Stickerify a picture |
+| sysinfo | Shot bot's system info |
+| ? | Another new thing soon |
 
 ## Features
 | Name | Description |
 | ---- | ----------- |
 | Command handler | This bot uses a command handler which means every command has its own file; Easier to debug |
-| | Another new thing soon |
+| ? | Another new thing soon |
 
 ## Installation
 1. Clone this repo
@@ -23,7 +26,7 @@
 git clone https://github.com/rzlamrr/dvstBot
 cd dvstBot
 ```
-2. Open up the `config.json` file, and fill the required variables
+2. Rename `sample_config.json` to `config.json` file, and fill the required variables
 3. Install all the required dependencies
 ```sh
 npm i

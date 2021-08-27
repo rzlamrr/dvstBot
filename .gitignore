@@ -81,3 +81,7 @@ session.data.json
 **.data.json
 **.node-persist**
 # end managed
+
+# config
+config.json
+# end config
