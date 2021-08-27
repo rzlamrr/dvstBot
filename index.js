@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const prefix = require("./config.json").prefix;
+const { prefix, owner } = require("./config.json");
 const whatsapp = require("@open-wa/wa-automate");
 const fs = require("fs");
 const moment = require("moment-timezone");
@@ -19,9 +19,9 @@ whatsapp.create({
     chromiumArgs: ["--no-sandbox", "--disable-setuid-sandbox"],
     disableSpins: true,
     headless: true,
-    hostNotificationLang: "PT_BR",
+    hostNotificationLang: "ENGB",
     logConsole: false,
-    popup: true,
+    // popup: true,
     qrTimeout: 0,
     sessionId: "dvstBot",
     useChrome: true
@@ -38,18 +38,21 @@ function start(bot) {
     });
 
     bot.onMessage(async message => {
-        message.restTimestamp = Date.now();
-        cmd = message.caption || message.body || "";
-        if (cmd.startsWith(prefix)) {
-            args = cmd.slice(prefix.length).trim().split(/ +/g);
-            command = args.shift().toLowerCase();
-            sender = message.sender.pushname;
-        } else {
-            return;
-        }
-        if (availableCommands.has(command)) {
-            console.log(`[EXEC] ${message.chat.name || message.chat.formattedTitle}: ${sender}: ${command} [${args.length}] ${moment(message.t * 1000).format("DD/MM/YY HH:mm:ss")}`);
-            require(`./commands/${command}`).run(bot, message, args);
+        try {
+            message.restTimestamp = Date.now();
+            cmd = message.caption || message.body || "";
+            const isOwner = owner.includes(message.sender.id);
+            if (cmd.startsWith(prefix)) {
+                args = cmd.slice(prefix.length).trim().split(/ +/g);
+                command = args.shift().toLowerCase();
+                sender = message.sender.pushname;
+                if (availableCommands.has(command)) {
+                    console.log(`[EXEC] ${message.chat.name || message.chat.formattedTitle}: ${sender}: ${command} [${args.length}] ${moment(message.t * 1000).format("DD/MM/YY HH:mm:ss")}`);
+                    require(`./commands/${command}`).run(bot, message, args, isOwner);
+                }
+            }
+        } catch (err) {
+            console.log("[ERROR]", err);
         }
     });
 
