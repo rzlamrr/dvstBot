@@ -1,12 +1,12 @@
 const { prefix } = require("../config.json");
 
-exports.run = async (bot, message) => {
-    const txt = `*dvstBroadCast*\n\n${message.body.slice(4)}`;
+exports.run = async (bot, message, args, isOwner) => {
+    if (!isOwner) return bot.reply(message.from, "Owner Only!", message.id);
+    const txt = `*dvstBroadCast*\n\n${args.join(" ")}`;
     const groups = await bot.getAllChatIds();
     let c = 0;
     for (const group of groups) {
-        bot.sendText(group, txt);
-        c++;
+        bot.sendText(group, txt).then(() => c++);
     }
     bot.reply(message.from, `Broadcast succeed for ${c} chats.`, message.id);
 };
