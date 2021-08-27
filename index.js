@@ -39,28 +39,21 @@ function start(bot) {
 
     bot.onMessage(async message => {
         message.restTimestamp = Date.now();
-
-        try {
-            if (message.body.startsWith(prefix)) {
-                args = message.body.slice(prefix.length).trim().split(/ +/g);
-                command = args.shift().toLowerCase();
-                sender = message.sender.pushname;
-            } else if (message.caption.startsWith(prefix)) {
-                args = message.caption.slice(prefix.length).trim().split(/ +/g);
-                command = args.shift().toLowerCase();
-                sender = message.sender.pushname;
-            } else {
-                return;
-            }
-        // eslint-disable-next-line no-empty
-        } catch {}
+        cmd = message.caption || message.body || "";
+        if (cmd.startsWith(prefix)) {
+            args = cmd.slice(prefix.length).trim().split(/ +/g);
+            command = args.shift().toLowerCase();
+            sender = message.sender.pushname;
+        } else {
+            return;
+        }
         if (availableCommands.has(command)) {
             console.log(`[EXEC] ${message.chat.name || message.chat.formattedTitle}: ${sender}: ${command} [${args.length}] ${moment(message.t * 1000).format("DD/MM/YY HH:mm:ss")}`);
             require(`./commands/${command}`).run(bot, message, args);
         }
     });
 
-    bot.onIncomingCall(async (callData) => {
+    bot.onIncomingCall(async callData => {
         await bot.sendText(callData.peerJid, "*Beep boop!*\nCan't receive call for now.\n\n```- dvstBot```")
             .then(async () => {
                 await bot.contactBlock(callData.peerJid);
