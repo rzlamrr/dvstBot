@@ -1,19 +1,19 @@
 async function handler(m, { conn, text, args }) {
-  m.reply('@' + m.sender.split('@')[0], false, {
-    contextInfo: {
-      mentionedJid: [m.sender]
-    }
-  })
+	m.reply('@' + m.sender.split('@')[0], false, {
+		contextInfo: {
+			mentionedJid: [m.sender]
+		}
+	})
 }
 
 // this is chat-update
 // handler.all = function (m, chatUpdate) {
-//  
+//	
 // }
 
 // this is executed before normal handler
 // handler.before = function (m) {
-//  
+//	
 // }
 
 // handler.help = [''].map(v => v + ' <>')

@@ -1,19 +1,19 @@
 const { MessageType } = require('@adiwajshing/baileys')
 const PhoneNumber = require('awesome-phonenumber')
 async function handler(m) {
-  let name = 'ariffb'
-  number = owner[0].replace(/[^0-9]/g, '')
-  let njid = number + '@s.whatsapp.net'
-  let onW = await this.isOnWhatsApp(njid) || { isBusiness: false }
+	let name = 'ariffb'
+	number = owner[0].replace(/[^0-9]/g, '')
+	let njid = number + '@s.whatsapp.net'
+	let onW = await this.isOnWhatsApp(njid) || { isBusiness: false }
 
-  let name2 = 'andrian'
-  number2 = owner[1].replace(/[^0-9]/g, '')
-  let njid2 = number2 + '@s.whatsapp.net'
-  let onW2 = await this.isOnWhatsApp(njid2) || { isBusiness: false }
+	let name2 = 'andrian'
+	number2 = owner[1].replace(/[^0-9]/g, '')
+	let njid2 = number2 + '@s.whatsapp.net'
+	let onW2 = await this.isOnWhatsApp(njid2) || { isBusiness: false }
 
-  this.sendMessage(m.chat, {
-    contacts: [{
-      displayname: name, vcard: `
+	this.sendMessage(m.chat, {
+		contacts: [{
+			displayname: name, vcard: `
 BEGIN:VCARD
 VERSION:3.0
 N:;${name.replace(/\n/g, '\\n')};;;
@@ -24,8 +24,8 @@ X-WA-BIZ-DESCRIPTION:${((await this.getBusinessProfile(njid)).description || '')
 ` : ''}
 END:VCARD
 `.trim()
-    }, {
-      displayname: name2, vcard: `
+		}, {
+			displayname: name2, vcard: `
 BEGIN:VCARD
 VERSION:3.0
 N:;${name2.replace(/\n/g, '\\n')};;;
@@ -36,8 +36,8 @@ X-WA-BIZ-DESCRIPTION:${((await this.getBusinessProfile(njid2)).description || ''
 ` : ''}
 END:VCARD
 `.trim()
-    }]
-  }, MessageType.contactsArray, { quoted: m })
+		}]
+	}, MessageType.contactsArray, { quoted: m })
 }
 handler.help = ['owner', 'creator']
 handler.tags = ['info']

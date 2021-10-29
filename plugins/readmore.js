@@ -1,8 +1,8 @@
 let handler = async (m, { conn, text }) => {
-  let [ l, r ] = text.split`|`
-  if (!l) l = ''
-  if (!r) r = ''
-  conn.reply(m.chat, l + readMore + r, m)
+	let [ l, r ] = text.split`|`
+	if (!l) l = ''
+	if (!r) r = ''
+	conn.reply(m.chat, l + readMore + r, m)
 }
 handler.help = ['readmore','spoiler'].map(v => v + ' <teks>|<teks>')
 handler.tags = ['tools']

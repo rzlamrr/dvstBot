@@ -1,13 +1,13 @@
 let fetch = require("node-fetch");
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-  if (!args[0]) throw `Pokemonnya mana?`;
-  let res = await fetch(
-    API("https://some-random-api.ml", "/pokedex", { pokemon: args[0] })
-  );
-  if (!res.ok) throw `${res.status} ${res.statusText}`;
-  let json = await res.json();
-  let pokedex = `
+	if (!args[0]) throw `Pokemonnya mana?`;
+	let res = await fetch(
+		API("https://some-random-api.ml", "/pokedex", { pokemon: args[0] })
+	);
+	if (!res.ok) throw `${res.status} ${res.statusText}`;
+	let json = await res.json();
+	let pokedex = `
 Name: ${json.name}
 Id: ${json.id}
 Type: ${json.type}
@@ -33,16 +33,16 @@ DESCRIPTION
 ${json.description}
 Generation: ${json.generation}\n\n
 ~fatur
-  `.trim();
-  if (!json.error)
-    await conn.sendFile(
-      m.chat,
-      json.sprites.animated,
-      "pokemon.gif",
-      pokedex,
-      m
-    );
-  else throw json.error;
+	`.trim();
+	if (!json.error)
+		await conn.sendFile(
+			m.chat,
+			json.sprites.animated,
+			"pokemon.gif",
+			pokedex,
+			m
+		);
+	else throw json.error;
 };
 handler.help = ["pokemon"].map((v) => v + " <pokemon>");
 handler.tags = ["internet"];
