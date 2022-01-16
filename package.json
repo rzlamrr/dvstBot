@@ -30,7 +30,7 @@
     "moment-timezone": "^0.5.34"
   },
   "devDependencies": {
-    "@zhycorp/eslint-config": "^6.0.2",
+    "@zhycorp/eslint-config": "^7.0.0",
     "eslint": "^8.6.0"
   }
 }
