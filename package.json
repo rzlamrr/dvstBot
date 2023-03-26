@@ -27,7 +27,7 @@
     "child_process": "^1.0.2",
     "fs": "^0.0.1-security",
     "mathjs": "^11.6.0",
-    "moment-timezone": "^0.5.41"
+    "moment-timezone": "^0.5.42"
   },
   "devDependencies": {
     "@zhycorp/eslint-config": "^7.1.1",
